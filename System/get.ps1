@@ -34,17 +34,22 @@ if (-not (Test-Path "$programs\Node")) {
 	Rename-Item "$programs\node-v12.2.0-win-x64" "Node"
 }
 
+if (-not (Test-Path "$programs\mongoDB")) {
+	$client.DownloadFile("https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-4.0.9.zip", "$temp\mongodb.zip");
+	[System.IO.Compression.ZipFile]::ExtractToDirectory("$temp\mongodb.zip", "$programs");
+	Rename-Item "$programs\mongodb-win32-x86_64-2008plus-ssl-4.0.9" "mongoDB"
+}
+
+if (-not (Test-Path "$programs\Caddy")) {
+	mkdir "$programs\Caddy";
+	$client.DownloadFile("https://caddyserver.com/download/windows/amd64?plugins=http.cache,http.cors,http.expires,http.login,http.minify,http.realip&license=personal&telemetry=off", "$programs\Caddy\caddy.exe");
+}
+
 if (-not (Test-Path "$programs\Arduino")) {
 	$client.DownloadFile("https://downloads.arduino.cc/arduino-1.8.9-windows.zip", "$temp\arduino.zip");
 	[System.IO.Compression.ZipFile]::ExtractToDirectory("$temp\arduino.zip", "$programs");
 	Rename-Item "$programs\arduino-1.8.9" "Arduino"
 	mkdir "$programs\Arduino\portable";
-}
-
-if (-not (Test-Path "$programs\mongoDB")) {
-	$client.DownloadFile("https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-4.0.9.zip", "$temp\mongodb.zip");
-	[System.IO.Compression.ZipFile]::ExtractToDirectory("$temp\mongodb.zip", "$programs");
-	Rename-Item "$programs\mongodb-win32-x86_64-2008plus-ssl-4.0.9" "mongoDB"
 }
 
 if (-not (Test-Path "$programs\Firefox")) {

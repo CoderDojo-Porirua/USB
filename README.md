@@ -18,6 +18,13 @@ Set-ExecutionPolicy Unrestricted
 Set-ExecutionPolicy Bypassed
 ```
 
+From the [Microsoft website](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy)
+
+- **Bypass.** Nothing is blocked and there are no warnings or prompts.
+- **RemoteSigned.** Requires that all scripts and configuration files downloaded from the Internet are signed by a trusted publisher. The default execution policy for Windows server computers.
+- **Restricted.** Doesn't load configuration files or run scripts. The default execution policy Windows client computers.
+- **Unrestricted.** Loads all configuration files and runs all scripts. If you run an unsigned script that was downloaded from the Internet, you are prompted for permission before it runs. The default execution policy for non-Windows computers and cannot be changed.
+
 ## Installation
 
 After cloning this repository to the root of a USB stick (for a USB stick mounted to E drive, for example, run `git clone https://github.com/CoderDojo-Porirua/USBStick.git E:\`), run the _get.ps1_ PowerShell script in the _System_ folder to download all required programs:
