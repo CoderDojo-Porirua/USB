@@ -1,4 +1,4 @@
 [Autorun]
 icon=System\CoderDojo.ico
 label=CoderDojoPorirua
-open=System\run.bat
+open=System\run.ps1
