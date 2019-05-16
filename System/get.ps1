@@ -23,9 +23,15 @@ if (-not (Test-Path "$programs\VSCode")) {
 
 if (-not (Test-Path "$programs\Git")) {
 	$client.DownloadFile("https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/PortableGit-2.21.0-64-bit.7z.exe", "$programs\PortableGit.exe");
-	iex "$programs\PortableGit.exe -y";
+	Invoke-Expression "$programs\PortableGit.exe -y";
 	Rename-Item "$programs\PortableGit" "Git"
 	Remove-Item "$programs\PortableGit.exe";
+}
+
+if (-not (Test-Path "$programs\PuTTY")) {
+	mkdir "$programs\PuTTY";
+	$client.DownloadFile("https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe", "$programs\PuTTY\putty.exe");
+	$client.DownloadFile("https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe", "$programs\PuTTY\puttygen.exe");
 }
 
 if (-not (Test-Path "$programs\Node")) {
@@ -54,22 +60,22 @@ if (-not (Test-Path "$programs\Arduino")) {
 
 if (-not (Test-Path "$programs\Firefox")) {
 	$client.DownloadFile("https://github.com/portapps/firefox-developer-portable/releases/download/67.0b18-9/firefox-developer-portable-win64-67.0b18-9-setup.exe", "$temp\firefox-developer-portable.exe");
-	iex "$temp\firefox-developer-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Firefox""";
+	Invoke-Expression "$temp\firefox-developer-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Firefox""";
 }
 
 if (-not (Test-Path "$programs\Kitty")) {
 	$client.DownloadFile("https://github.com/portapps/kitty-portable/releases/download/0.70.0.10-1/kitty-portable-win32-0.70.0.10-1-setup.exe", "$temp\kitty-portable.exe");
-	iex "$temp\kitty-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Kitty""";
+	Invoke-Expression "$temp\kitty-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Kitty""";
 }
 
 if (-not (Test-Path "$programs\Docker")) {
 	$client.DownloadFile("https://github.com/portapps/docker-toolbox-portable/releases/download/18.09.3-5/docker-toolbox-portable-win64-18.09.3-5-setup.exe", "$temp\docker-toolbox-portable.exe");
-	iex "$temp\docker-toolbox-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Docker""";
+	Invoke-Expression "$temp\docker-toolbox-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Docker""";
 }
 
 if (-not (Test-Path "$programs\Discord")) {
 	$client.DownloadFile("https://github.com/portapps/discord-portable/releases/download/0.0.305-1/discord-portable-win32-0.0.305-1-setup.exe", "$temp\discord-portable.exe");
-	iex "$temp\discord-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Discord""";
+	Invoke-Expression "$temp\discord-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Discord""";
 }
 
 #Remove-Item –path $temp –recurse;

@@ -4,11 +4,11 @@ $programs = "$root\Programs";
 $config = Import-LocalizedData -BaseDirectory $root -FileName "config.psd1";
 
 $Env:Path += ";$programs\Git\cmd";
-iex "$programs\Git\cmd\git.exe config --global user.name ""$config.Name""";
-iex "$programs\Git\cmd\git.exe config --global user.email $config.Email";
+Invoke-Expression "$programs\Git\cmd\git.exe config --global user.name ""$config.Name""";
+Invoke-Expression "$programs\Git\cmd\git.exe config --global user.email $config.Email";
 
-iex "$programs\Node\nodevars.bat";
+Invoke-Expression "$programs\Node\nodevars.bat";
 
-iex "$programs\VSCode\Code.exe";
+Invoke-Expression "$programs\VSCode\Code.exe";
 
 #Write-Host $config.Name
