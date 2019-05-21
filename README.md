@@ -1,4 +1,4 @@
-# USB Stick installer
+# Development Environment on a USB stick
 
 This project allows for a USB stick to be setup with portable versions of VS Code, Git, Node and other useful apps. The intention for the USB stick is for it to be distributed to students, and they will be able to run the environment both at CoderDojo sessions and at home.
 
