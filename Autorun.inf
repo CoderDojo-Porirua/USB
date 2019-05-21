@@ -1,4 +1,4 @@
 [Autorun]
-icon=System\CoderDojo.ico
+icon=USB\CoderDojo.ico
 label=CoderDojoPorirua
-open=System\run.ps1
+open=USB\run.ps1

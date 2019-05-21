@@ -11,10 +11,18 @@ $programs = "$root\Programs";
 if (-not (Test-Path $programs)) {
 	mkdir $programs;
 }
+$documents = "$root\Documents";
+if (-not (Test-Path $documents)) {
+	mkdir $documents;
+}
 
-#md "$programs\Putty";
-#$client.DownloadFile("https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe", "$programs\Putty\putty.exe");
-#$client.DownloadFile("https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe", "$programs\Putty\puttygen.exe");
+if (-not (Test-Path "$root\Autorun.inf")) {
+	Copy-Item "$PSScriptRoot\Autorun.inf" -Destination $root
+}
+
+if (-not (Test-Path "$root\config.psd1")) {
+	Copy-Item "$PSScriptRoot\config.psd1" -Destination $root
+}
 
 if (-not (Test-Path "$programs\VSCode")) {
 	$client.DownloadFile("http://go.microsoft.com/fwlink/?Linkid=850641", "$temp\VSCode.zip");
