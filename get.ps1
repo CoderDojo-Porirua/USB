@@ -1,7 +1,7 @@
 # http://unattended.sourceforge.net/installers.php
 
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls";
-$client = new-object System.Net.WebClient;
+$client = New-Object System.Net.WebClient;
 Add-Type -AssemblyName System.IO.Compression.FileSystem;
 
 Write-Host "Creating Folders:";
@@ -188,3 +188,11 @@ if (-not (Test-Path "$programs\Discord")) {
 
 Write-Host "Deleting Temp Folder";
 #Remove-Item –path $temp –recurse;
+
+function shortcut($source, $destination, $arguments) {
+	$WshShell = New-Object -comObject WScript.Shell;
+	$Shortcut = $WshShell.CreateShortcut($destination);
+	$Shortcut.TargetPath = $source;
+	$Shortcut.Arguments = $arguments;
+	$Shortcut.Save();
+}

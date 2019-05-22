@@ -41,11 +41,13 @@ An Autorun file has been included. This runs the _USB\run.ps1_ file, which confi
 - [Docker](https://www.docker.com/) (Virtualisation)
 - [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (Remote Host Access)
 - [KiTTY](http://www.9bis.net/kitty/) (Remote Host Access)
-- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) (Developer Browser)
+- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) (Browser)
 - [Postman](https://www.getpostman.com/) (API Testing)
 - [Discord](https://discordapp.com/) (Instant Messaging)
 
 ## Issues
+
+### Running PowerShell scripts
 
 The USB stick is setup and run with PowerShell scripts, inside the USB folder. If you have problems running these scripts, it may be because of your computer's Execution Policy. To check the current policy setting, in an Administrator PowerShell run:
 
