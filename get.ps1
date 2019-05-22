@@ -1,3 +1,5 @@
+# http://unattended.sourceforge.net/installers.php
+
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls";
 $client = new-object System.Net.WebClient;
 Add-Type -AssemblyName System.IO.Compression.FileSystem;
@@ -63,7 +65,7 @@ if (-not (Test-Path "$programs\PuTTY")) {
 	Write-Host "  Done.";
 }
 
-Write-Host "NodeJS (JavaScript)";
+Write-Host "NodeJS (JavaScript Language)";
 if (-not (Test-Path "$programs\Node")) {
 	Write-Host "  Downloading...";
 	$client.DownloadFile("https://nodejs.org/dist/v12.2.0/node-v12.2.0-win-x64.zip", "$temp\node.zip");
@@ -80,6 +82,16 @@ if (-not (Test-Path "$programs\mongoDB")) {
 	Write-Host "  Installing...";
 	[System.IO.Compression.ZipFile]::ExtractToDirectory("$temp\mongodb.zip", "$programs");
 	Rename-Item "$programs\mongodb-win32-x86_64-2008plus-ssl-4.0.9" "mongoDB"
+	Write-Host "  Done.";
+}
+
+Write-Host "MariaDB (SQL Database)";
+if (-not (Test-Path "$programs\MariaDB")) {
+	Write-Host "  Downloading...";
+	$client.DownloadFile("http://mirror.takeshi.nz/mariadb//mariadb-10.3.15/winx64-packages/mariadb-10.3.15-winx64.zip", "$temp\mariadb.zip");
+	Write-Host "  Installing...";
+	[System.IO.Compression.ZipFile]::ExtractToDirectory("$temp\mariadb.zip", "$programs");
+	Rename-Item "$programs\mariadb-10.3.15-winx64" "MariaDB"
 	Write-Host "  Done.";
 }
 
@@ -102,12 +114,48 @@ if (-not (Test-Path "$programs\Arduino")) {
 	Write-Host "  Done.";
 }
 
+Write-Host "Espruino (Development Environment)";
+if (-not (Test-Path "$programs\Espruino")) {
+	Write-Host "  Downloading...";
+	$client.DownloadFile("http://www.espruino.com/files/espruino_ide_win64_0v70.6.exe", "$temp\espruino_ide.exe");
+	Write-Host "  Installing...";
+	Invoke-Expression "$temp\espruino_ide.exe /S /D=""$programs\Espruino""";
+	Write-Host "  Done.";
+}
+
+Write-Host "WinPython (Python Language)";
+if (-not (Test-Path "$programs\Python")) {
+	Write-Host "  Downloading...";
+	$client.DownloadFile("https://github.com/winpython/winpython/releases/download/1.11.20190223/Winpython64-3.7.2.0Zero.exe", "$temp\Winpython.exe");
+	Write-Host "  Installing...";
+	Invoke-Expression "$temp\Winpython.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Python""";
+	Write-Host "  Done.";
+}
+
 Write-Host "Firefox (Developer Browser)";
 if (-not (Test-Path "$programs\Firefox")) {
 	Write-Host "  Downloading...";
 	$client.DownloadFile("https://github.com/portapps/firefox-developer-portable/releases/download/67.0b18-9/firefox-developer-portable-win64-67.0b18-9-setup.exe", "$temp\firefox-developer-portable.exe");
 	Write-Host "  Installing...";
 	Invoke-Expression "$temp\firefox-developer-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Firefox""";
+	Write-Host "  Done.";
+}
+
+Write-Host "Postman (API Testing)";
+if (-not (Test-Path "$programs\Postman")) {
+	Write-Host "  Downloading...";
+	$client.DownloadFile("https://github.com/portapps/postman-portable/releases/download/7.1.1-10/postman-portable-win64-7.1.1-10-setup.exe", "$temp\postman-portable.exe");
+	Write-Host "  Installing...";
+	Invoke-Expression "$temp\postman-portable.exe /VERYSILENT /NORESTART /CLOSEAPPLICATIONS /NOICONS /DIR=""$programs\Postman""";
+	Write-Host "  Done.";
+}
+
+Write-Host ".NET Core (C# Language)";
+if (-not (Test-Path "$programs\DotNet")) {
+	Write-Host "  Downloading...";
+	$client.DownloadFile("https://dot.net/v1/dotnet-install.ps1", "$temp\dotnet-install.ps1");
+	Write-Host "  Installing...";
+	Invoke-Expression "$temp\dotnet-install.ps1 -NoPath -InstallDir $programs\DotNet";
 	Write-Host "  Done.";
 }
 

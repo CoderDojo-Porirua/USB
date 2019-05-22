@@ -1,10 +1,10 @@
 # Development Environment on a USB stick
 
-This project allows for a USB stick to be setup with portable versions of VS Code, Git, Node and other useful apps. The intention for the USB stick is for it to be distributed to students, and they will be able to run the environment both at CoderDojo sessions and at home.
+This project allows for a USB stick to be setup for Windows with portable versions of VS Code, Git, Node and other useful apps. The intention for the USB stick is for it to be distributed to students, and they will be able to run the environment both at CoderDojo sessions and at home.
 
 ## Installation
 
-Clone this repository to the root of a USB stick. Within CMD or PowerShell, change your directory to the root of the USB stick and then run:
+Clone this repository to the root of a USB stick. Within CMD or PowerShell, change your directory to the root of the USB stick and run:
 
 ```powershell
 git clone https://github.com/CoderDojo-Porirua/USB.git
@@ -25,6 +25,25 @@ An Autorun file has been included. This runs the _USB\run.ps1_ file, which confi
 ```powershell
 .\USB\run.ps1
 ```
+
+## Installed Apps
+
+- [VS Code](https://code.visualstudio.com/) (IDE)
+- [Arduino](https://www.arduino.cc/) (IDE)
+- [Espruino](http://www.espruino.com/) (IDE)
+- [Portable Git](https://git-scm.com/download/win) (Version Control)
+- [NodeJS](https://nodejs.org/) (JavaScript Interpreter)
+- [.NET Core](https://dotnet.microsoft.com/) (C# Interpreter)
+- [Win Python](https://winpython.github.io/) (Python Interpreter)
+- [MariaDB](https://mariadb.org/) (SQL Database)
+- [mongoDB](https://www.mongodb.com/) (NoSQL Database)
+- [Caddy](https://caddyserver.com/) (Web Server)
+- [Docker](https://www.docker.com/) (Virtualisation)
+- [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (Remote Host Access)
+- [KiTTY](http://www.9bis.net/kitty/) (Remote Host Access)
+- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) (Developer Browser)
+- [Postman](https://www.getpostman.com/) (API Testing)
+- [Discord](https://discordapp.com/) (Instant Messaging)
 
 ## Issues
 
